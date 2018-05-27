@@ -41,7 +41,7 @@
     ![Block](./images/block.png)
       * The node start running some calculations on the block, that is called Mining
       * Mining is the process of finding a hash  that starts with `0000` 4 0s (signed block).
-      ![Blockchain](./images/blockchain.png)
+      ![Blockchain](./images/blockchain.png) 
 
 
 * Distributed Blockchain
