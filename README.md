@@ -48,6 +48,7 @@
   * We have many peers with copies of the blockchain. Consequently, if one of the peers changes some past block of his block chain, that will not match his neighbors blockchain.
   * Democracy wins, that means that if peer A is different from B and C (and those are equal), then A is incorrect
 
+
 * Ethereum blockchain specifics
   * The ethereum hash does not need to start with 4 0s, it actually needs to be a hash that is less than a target value.
   * ![Hash](./images/hash.png)  
@@ -63,6 +64,7 @@
 * An account controller by code
 ![Contract Account](./images/contract-account.png)
 
+
 * External Account: The ones we create with Metamask and other apps (human beings accounts)
   * Those are also called External Accounts
   * ![External Account](./images/external-account.png)
@@ -75,6 +77,7 @@
   * Contract Source is like a class
   * Contract Instance is like an instance of a class
     * Each instance of that class will be deployed to a network
+
 
 * Solidity Programming Languages
   * ![Solidity](./images/solidity.png)
@@ -112,3 +115,52 @@ contract Inbox {
       * If we leave the `to` field as blank, the transaction will be turned into a contracted inside the network
       * `data`: the compiled code of the contract (open code)
       * `value`: We can send some initial amount of money with this contract
+
+
+  * Interacting with contracts
+    * ![Calling Function](./images/call-func.png)
+    * We call a function to mostly read contract data and not change it
+    * We make a transaction to change a contracts data for the most part
+      * Sending a transaction to a function cost some amount of `ether`
+        * ![Calling Function](./images/units.png)
+        * A `wei` is equal to `ether`
+        * For every one dollar we have 100 cents
+        * For 1 Ether we have 1,000,000,000,000,000 Wei (no wei fraction)
+        * To convert `ether` units: https://etherconverter.online/
+
+
+  * The gas system
+    * Running code is not free
+    * In order to get someone else to run our contracts, we have to pay them money (gas)
+    * Every operation has a price (example: sum to operands)
+      * https://docs.google.com/spreadsheets/d/1n6mRqkBz3iWcOlRem_mO09GtSKEKrAsfO7Frgx18pNU/edit#gid=0
+      * ![Gas](./images/gas.png)
+      * Whenever we issue a transaction that changes the blockchain in any fashion, we have to specify the amount of gas (wei) we are willing to pay to run that transaction
+      * Some functions we wont be able to calculate the amount of gas necessary just by looking at the spreed sheet. Consequently, we specify a `gasLimit` to give us flexibility (estimate)
+        * An example is a for-loop execution
+        * `gasPrice`: I am paying 300 `wei` for gas unit
+          * The default gas price is now 0.02 microether which is equivalent to:
+            * 0.00000002 Ether (.02 * 1e-6)
+            * 0.02e12 wei
+            * 20000000000 wei
+            * 20e9 wei
+            * 20 Gwei (gigawei)
+            * 0.02 szabo
+        * `gasLimit`: I want to use at max 10 gas units to process this function
+        * ![Gas Transaction](./images/gas-transaction.png)
+          * If you don't have enough gas to run the function, it will stop mid way
+          * ![Total Gas Cost](./images/total-gas-cost.png)
+          * Operations that modify, or store data in the blockchain are gonna cost some amount of money
+
+
+  * Mnemonic Phrases
+    * ![Mnemonic Phrases](./images/mnemonic.png)
+    * This will output private keys, public keys and accounts info.
+      * Many accounts (Metamask is a good example)
+      * https://iancoleman.io/bip39/: Convert mnemonic into public, private keys and addresses info
+        * Metamask for instance will use this Derived Address table to create new accounts
+        * ![Derived Address](./images/creating-new-accounts.png)
+
+
+  * Lets get some Ether
+    * faucet.rinkeby.io
