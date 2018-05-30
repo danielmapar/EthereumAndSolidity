@@ -164,3 +164,9 @@ contract Inbox {
 
   * Lets get some Ether
     * faucet.rinkeby.io
+
+  * Truffle: Develop, test and deploy contracts to the Ethereum network
+    * ![Truffle](./images/truffle.png)
+    * ![Truffle](./images/truffle-underdev.png)
+    * Lets make a custom Node project to do Truffles task
+    * ![Node Solution](./images/design-node-solution.png)
