@@ -170,3 +170,34 @@ contract Inbox {
     * ![Truffle](./images/truffle-underdev.png)
     * Lets make a custom Node project to do Truffles task
     * ![Node Solution](./images/design-node-solution.png)
+
+  * Check code inside `./inbox/compile.js`
+    * To test our contract, we will create our own local network
+    * ![Network](./images/create-network.png)
+    * We will use `web3` to call the ABI interfaces inside the network
+    * We will use Ganache as the actual network
+      * ![Ganache Accounts](./images/ganache-accounts.png)
+      * Web3 will access the automatically created accounts from ganache
+        * We can use those unlocked accounts to send money, deploy contracts, etc..
+
+
+  * `Web3` contract interactions:
+    * ![Contracts](./images/web3-contracts.png)
+    * We can also interact with already deployed contracts (we just need the `ABI`, no bytecode required)
+
+
+  * Deploy contract to Rinkeby (get credits at https://faucet.rinkeby.io/) ![Deploy](./images/deploy-rinkeby.png)
+    * You can deploy a contract by running a node inside the Rinkeby network and communicating with it directly. However, this is a complicated process and we can use a third-party api to do the job (Infura)
+    * https://infura.io/
+    * `node deploy.js`: Deploying a contract to Rinkeby
+      * https://rinkeby.etherscan.io/tx/0x3f19a15bea133538967c9b3969e21a3c45479880d330340f6608909670f47588
+    * We can also interact with this new contract by using http://remix.ethereum.org/
+      * Copy the code from `Inbox.sol` and compile it inside remix
+      * Select the `Injected Web3` env to connect to your Metamask account
+      * Input your contract address
+      * Run! (it should take 30sec to a minute)
+        * This will run inside the Rinkeby network
+      * ![Run Get Message](./images/get-message-contract.png)
+      * ![Run Set Message](./images/set-message-contract.png)
+        * Remember, we need to submit some `ether` to run a transaction that changes the contract data
+        * Running `message` does not change the contract, that is why it is free
