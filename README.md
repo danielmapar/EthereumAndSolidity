@@ -201,3 +201,31 @@ contract Inbox {
       * ![Run Set Message](./images/set-message-contract.png)
         * Remember, we need to submit some `ether` to run a transaction that changes the contract data
         * Running `message` does not change the contract, that is why it is free
+
+## Solidity
+
+* Types
+![Solidity Types](./images/solidity-types.png)
+![Int](./images/int.png)
+
+* The message global variable
+  * `msg` object
+    * Account
+    * Transaction
+    * Available with any function invocation
+    * Global variable to describe who sent in a function invocation
+    * ![Msg Object](./images/msg-object.png)
+      * Call or transaction
+        * `msg.data`: On contract creation it has the contract source code, and if we were trying to invoke a function it would show the arguments we are passing to it
+        * `msg.gas`: The amount of gas to run the function
+        * `msg.sender`: Address of person/account how invoked function
+        * `msg.value`: Amount of ether that was sent with the function invocation
+
+* Check `lottery/contracts/Lottery.sol` for a solid example of the `msg` object.
+
+## Full front-end application using Ethereum
+
+* Check `./lottery-react/src/index.js`
+  * To run this guy, deploy the contract inside by running `node ./lottery/deploy.js`
+    * Copy the new contract address to `./lottery-react/src/lottery.js`
+  * Install Metamask and add some ETH to your account inside the Rinkeby network
