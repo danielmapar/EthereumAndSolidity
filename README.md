@@ -229,3 +229,5 @@ contract Inbox {
   * To run this guy, deploy the contract inside by running `node ./lottery/deploy.js`
     * Copy the new contract address to `./lottery-react/src/lottery.js`
   * Install Metamask and add some ETH to your account inside the Rinkeby network
+
+* Check `./kickstart` --> Instructions from `lottery-react` applies 
